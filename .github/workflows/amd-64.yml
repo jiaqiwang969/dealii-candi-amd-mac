@@ -1,0 +1,24 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  bigsur:
+    name: arm64-candi test
+    runs-on: [self-hosted]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: setup
+      run: |
+        #
+        #brew install wget gnuplot cmake openmpi modules vim trash
+
+        export OMPI_CXX=g++-10
+        export OMPI_CC=gcc-10
+        export OMPI_FC=gfortran-10
+        echo 'DEAL_II_CONFOPTS="-D CMAKE_BUILD_TYPE=Debug"' >> candi.cfg
+        git clone -b dealii-9.3 https://github.com/dealii/candi.git
+        cd candi
+        ./candi.sh  -j 6 --packages="once:p4est once:trilinos once:petsc dealii" --platform=deal.II-toolchain/platforms/supported/catalina.platform
+
