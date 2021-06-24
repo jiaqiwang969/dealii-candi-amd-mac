@@ -9,4 +9,4 @@ the official gfortran binaries break the compile chain because the binaries list
 
   “https://github.com/fxcoudert/gfortran-for-macOS”
 
-  rs
+  rss
