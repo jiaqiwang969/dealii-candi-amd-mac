@@ -16,7 +16,7 @@ jobs:
 
         export OMPI_CXX=g++-9
         export OMPI_CC=gcc-9
-        export OMPI_FC=gfortran-9
+        export OMPI_FC=gfortran
         echo 'DEAL_II_CONFOPTS="-D CMAKE_BUILD_TYPE=Debug"' >> candi.cfg
         git clone -b dealii-9.3 https://github.com/dealii/candi.git
         cd candi
