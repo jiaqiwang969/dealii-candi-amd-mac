@@ -18,7 +18,9 @@ jobs:
         export OMPI_CC=gcc-9
         export OMPI_FC=gfortran
         echo 'DEAL_II_CONFOPTS="-D CMAKE_BUILD_TYPE=Debug"' >> candi.cfg
-        git clone -b dealii-9.3 https://github.com/dealii/candi.git
+        git clone  https://github.com/dealii/candi.git
         cd candi
-        ./candi.sh  -j 6 --packages="once:p4est once:trilinos once:petsc dealii" --platform=deal.II-toolchain/platforms/supported/catalina.platform
+        ./candi.sh  -j 6 --packages="dealii" --platform=deal.II-toolchain/platforms/supported/catalina.platform
+
+
 
